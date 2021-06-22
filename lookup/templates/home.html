@@ -2,6 +2,29 @@
 
 {% block content %}
 
-<h1>Hello World!!</h1>
+<br/>
+
+{% if zipcode %}
+    {{ zipcode }}
+{% endif %}
+
+{% if api %}
+    {% if api == "Error..." %}
+        There was an error, please try again...
+    {% else %}
+
+<div class="card w-100 good">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h1 class="card-title">{{ api.0.Category.Name }}</h1>
+        <p class="card-text">Current {{ api.0.ReportingArea }} Air Quality: {{ api.0.AQI }}</p>
+
+      </div>
+    </div>
+
+    {% endif %}
+
+{% endif %}
+
 
 {% endblock %}
